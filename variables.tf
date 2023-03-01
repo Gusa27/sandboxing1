@@ -284,7 +284,7 @@ variable "fgtami" {
 
 //  Existing SSH Key on the AWS 
 variable "keyname" {
-  default = "<AWS SSH KEY>"
+  default = "fgtkey"
 }
 
 variable "adminsport" {
