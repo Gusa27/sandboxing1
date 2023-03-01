@@ -15,24 +15,24 @@ variable "vpccidr" {
   default = "10.1.0.0/16"
 }
 
-variable "publiccidraz1" {
-  default = "10.1.0.0/24"
-}
-
-variable "privatecidraz1" {
-  default = "10.1.1.0/24"
-}
-
 variable "bastioncidraz1" {
   default = "10.1.0.0/24"
 }
 
-variable "pccidraz1" {
+variable "publiccidraz1" {
   default = "10.1.1.0/24"
 }
 
+variable "privatecidraz1" {
+  default = "10.1.2.0/24"
+}
+
+variable "pccidraz1" {
+  default = "10.1.3.0/24"
+}
+
 variable "dccidraz1" {
-  default = "10.1.1.0/24"
+  default = "10.1.4.0/24"
 }
 
 // License Type to create FortiGate-VM
