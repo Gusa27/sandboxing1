@@ -1,8 +1,3 @@
-resource "aws_network_interface" "bastion-eth0" {
-  description = "pc01-port1"
-  subnet_id   = aws_subnet.pcsubnetaz1.id
-}
-
 resource "aws_network_interface" "pc01-eth0" {
   description = "pc01-port1"
   subnet_id   = aws_subnet.pcsubnetaz1.id
@@ -14,6 +9,8 @@ resource "aws_instance" "bastion" {
     key_name          = var.keyname
     availability_zone = var.az1
     associate_public_ip_address = "true"
+    subnet_id   = aws_subnet.pcsubnetaz1.id
+}
 
 resource "aws_instance" "pc01" {
     ami = "ami-0acafadf3f00e9c70"
