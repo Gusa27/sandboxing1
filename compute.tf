@@ -15,6 +15,7 @@ resource "aws_instance" "pc01" {
     availability_zone = var.az1
     associate_public_ip_address = "false"
     subnet_id = aws_subnet.pcsubnetaz1.id
+    vpc_security_group_ids = ["${aws_security_group.pc.id}"]
 }
 
 resource "aws_security_group" "bastion" {
@@ -26,6 +27,26 @@ resource "aws_security_group" "bastion" {
     to_port     = 3389
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  } 
+}
+
+resource "aws_security_group" "pc" {
+  name        = "pc-sg"
+  description = "PC Security Group"
+  vpc_id      = aws_vpc.fgtvm-vpc.id
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = var.vpccidr
+    #cidr_blocks = [["${vpccidr}"]]
   }
 
   egress {
