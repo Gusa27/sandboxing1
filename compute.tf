@@ -7,6 +7,10 @@ resource "aws_instance" "bastion" {
     subnet_id = aws_subnet.bastionsubnetaz1.id
     vpc_security_group_ids = ["${aws_security_group.bastion.id}"]
     iam_instance_profile = "EC2_to_SSM"
+
+  tags = {
+    Name = "BastionServer"
+  }
 }
 
 resource "aws_instance" "pc01" {
@@ -17,6 +21,10 @@ resource "aws_instance" "pc01" {
     associate_public_ip_address = "false"
     subnet_id = aws_subnet.pcsubnetaz1.id
     vpc_security_group_ids = ["${aws_security_group.pc.id}"]
+
+  tags = {
+    Name = "Windows10"
+  }
 }
 
 resource "aws_security_group" "bastion" {
