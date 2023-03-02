@@ -52,7 +52,7 @@ variable "arch" {
 // c6g.xlarge is arm
 // For detail, refer to https://aws.amazon.com/ec2/instance-types/
 variable "size" {
-  default = "t2.small"
+  default = "c6i.xlarge"
 }
 
 // AMIs for FGTVM-7.2.4
