@@ -21,11 +21,20 @@ resource "aws_instance" "pc01" {
 
 
 resource "aws_security_group" "bastion" {
-  name_prefix = "bastion-sg-"
+  name        = "bastion-sg"
+  description = "Bastion Security Group"
+  vpc_id      = aws_vpc.fgtvm-vpc.id
   ingress {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  } 
 }
