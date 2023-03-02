@@ -1,7 +1,6 @@
 resource "aws_network_interface" "bastion-eth0" {
   description = "pc01-port1"
   subnet_id   = aws_subnet.pcsubnetaz1.id
-  ecs_associate_public_ip_address = "true"
 }
 
 resource "aws_network_interface" "pc01-eth0" {
@@ -14,6 +13,7 @@ resource "aws_instance" "bastion" {
     instance_type = "t3.xlarge"
     key_name          = var.keyname
     availability_zone = var.az1
+    associate_public_ip_address = "true"
 
   network_interface {
     network_interface_id = aws_network_interface.bastion-eth0.id
