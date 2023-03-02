@@ -10,6 +10,7 @@ resource "aws_network_interface" "pc01-eth0" {
 
 resource "aws_instance" "bastion" {
     ami = "ami-065793e81b1869261"
+    ecs_associate_public_ip_address = "true"
     instance_type = "t3.xlarge"
     key_name          = var.keyname
     availability_zone = var.az1
