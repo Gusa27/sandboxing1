@@ -6,6 +6,7 @@ resource "aws_instance" "bastion" {
     associate_public_ip_address = "true"
     subnet_id = aws_subnet.bastionsubnetaz1.id
     vpc_security_group_ids = ["${aws_security_group.bastion.id}"]
+    iam_instance_profile = "EC2_to_SSM"
 }
 
 resource "aws_instance" "pc01" {
