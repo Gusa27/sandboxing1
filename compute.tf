@@ -32,8 +32,8 @@ resource "aws_security_group" "bastion" {
   description = "Bastion Security Group"
   vpc_id      = aws_vpc.fgtvm-vpc.id
   ingress {
-    from_port   = 22
-    to_port     = 22
+    from_port   = 3389
+    to_port     = 3389
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
