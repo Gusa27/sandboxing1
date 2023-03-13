@@ -80,8 +80,8 @@ resource "aws_security_group" "pc" {
 }
 
 resource "aws_security_group" "dc" {
-  name        = "pc-sg"
-  description = "PC Security Group"
+  name        = "dc-sg"
+  description = "DC Security Group"
   vpc_id      = aws_vpc.fgtvm-vpc.id
   ingress {
     from_port   = 0
