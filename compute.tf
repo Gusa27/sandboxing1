@@ -14,7 +14,7 @@ resource "aws_instance" "bastion" {
 }
 
 resource "aws_instance" "pc01" {
-    ami                         = "ami-0acafadf3f00e9c70"
+    ami                         = "ami-01d46d04f587a5a05"
     instance_type               = var.size
     key_name                    = var.keyname
     availability_zone           = var.az1
@@ -27,8 +27,8 @@ resource "aws_instance" "pc01" {
   }
 }
 
-resource "aws_instance" "dc-ficosa" {
-    ami                         = "ami-0876379a8678f997f"
+resource "aws_instance" "dc01" {
+    ami                         = "ami-01d46d04f587a5a05"
     instance_type               = var.size
     key_name                    = var.keyname
     availability_zone           = var.az1
