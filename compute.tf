@@ -37,7 +37,7 @@ resource "aws_instance" "dc01" {
     vpc_security_group_ids      = ["${aws_security_group.dc.id}"]
 
   tags = {
-    Name = "DC-Ficosa"
+    Name = "DC"
   }
 }
 
